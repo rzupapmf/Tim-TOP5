@@ -1,0 +1,2 @@
+U ovom djelu koristili smo kratku web formu koristeći HTML, CSS, JS za prikaz korisničkog sučelja.
+Za povezivanje na bazu podataka koristimo PHP koji nam vrši provjeru korisničkih podataka ili unos novog korisnika u bazu podataka.
