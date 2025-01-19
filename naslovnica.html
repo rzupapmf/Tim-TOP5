@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style1.css">
+    <title>Budget Application</title>
+</head>
+
+<body>
+
+    <!-- Navigacijska traka -->
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-user-circle"></i>
+                        <span id="username">John Doe</span>
+                    </a>
+                    <ul class="dropdown">
+                        <li><a href="#" id="logout">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Kategorije za Budžet -->
+    <div class="category-container">
+        <h2>Your Budget Categories</h2>
+        <div class="categories">
+            <!-- Dinamički će se dodati kategorije ovdje -->
+        </div>
+        <button id="add-category">Add Category</button>
+    </div>
+
+    <script src="script1.js"></script>
+</body>
+
+</html>
