@@ -44,9 +44,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             // Definicija generičkih kategorija
             $categories = [
-                ['name' => 'Hrana', 'budget' => 500.00],
-                ['name' => 'Stanarina', 'budget' => 300.00],
-                ['name' => 'Režije', 'budget' => 200.00],
+                ['name' => 'Hrana', 'budget' => 00.00],
+                ['name' => 'Stanarina', 'budget' => 00.00],
+                ['name' => 'Režije', 'budget' => 00.00],
             ];
 
             // SQL upit za unos kategorija u tablicu kategorija
