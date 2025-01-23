@@ -134,9 +134,52 @@ header .logout {
 
 .category .total {
     font-size: 1.2em;
-    border-top: 1px solid black;
+    border-top: 1px solid rgb(0, 0, 0);
     padding-top: 10px;
 }
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.category2 {
+    background-color: #d9b3e6;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.category2 h3 {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.category2 .amounts {
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.category2 .amounts .income {
+    color: #00ff00;
+}
+
+.category2 .amounts .expense {
+    color: #ff0000;
+}
+
+.category2 .total {
+    font-size: 1.2em;
+    border-top: 1px solid rgb(0, 0, 0);
+    padding-top: 10px;
+}
+
 
 
 
