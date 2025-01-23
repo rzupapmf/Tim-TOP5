@@ -1,43 +1,49 @@
+<?php include 'fetch_categories.php'; ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="style1.css">
-    <title>Budget Application</title>
+    <link rel="stylesheet" href="naslovnica.css">
+    <title>Aplikacija za Budžet</title>
 </head>
 
 <body>
-
-    <!-- Navigacijska traka -->
+    <!-- Navigacija -->
     <header>
-        <nav>
-            <ul>
-                <li>
-                    <a href="#">
-                        <i class="fas fa-user-circle"></i>
-                        <span id="username">John Doe</span>
-                    </a>
-                    <ul class="dropdown">
-                        <li><a href="#" id="logout">Logout</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
+        <div class="user-info">
+            <i class="fas fa-user-circle"></i>
+            <span><?php echo htmlspecialchars($loggedInUser); ?></span>
+        </div>
+        <a href="#" class="logout"><i class="fas fa-power-off"></i></a>
     </header>
 
-    <!-- Kategorije za Budžet -->
-    <div class="category-container">
-        <h2>Your Budget Categories</h2>
-        <div class="categories">
-            <!-- Dinamički će se dodati kategorije ovdje -->
+    <!-- Glavni sadržaj -->
+    <div class="container">
+        <div class="header-row">
+            <i class="fas fa-edit edit"></i>
+            <div class="total-budget">0,00 €</div>
+            <button class="add-category">+</button>
         </div>
-        <button id="add-category">Add Category</button>
-    </div>
 
-    <script src="script.js"></script>
+        <div class="categories">
+            <?php foreach ($categories as $category): ?>
+                <div class="category">
+                    <h3><?php echo htmlspecialchars($category['naziv']); ?></h3>
+                    <div class="amounts">
+                        <span class="income">0,00 €</span>
+                        <span class="expense">0,00 €</span>
+                    </div>
+                    <div class="total">0,00 €</div>
+                    <?php if (!$category['genericka']): ?>
+                        <button class="delete">X</button>
+                    <?php endif; ?>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
 </body>
 
 </html>

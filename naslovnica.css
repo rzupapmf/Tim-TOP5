@@ -1,0 +1,142 @@
+/* Reset osnovnih postavki */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Lucida Handwriting, cursive;
+    background-color: #e4d4f8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    width: 100%;
+    background-color: #800080;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+header .user-info {
+    display: flex;
+    align-items: center;
+}
+
+header .user-info i {
+    font-size: 1.8em;
+    margin-right: 10px;
+}
+
+header .user-info span {
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+header .logout {
+    font-size: 1.8em;
+    cursor: pointer;
+}
+
+/* Glavni kontejner */
+.container {
+    margin-top: 20px;
+    width: 90%;
+    max-width: 1000px;
+    background-color: #f6effc;
+    border: 2px solid #6a0dad;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    position: relative;
+}
+
+/* Naslovna traka u glavnom dijelu */
+.container .header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header-row .edit {
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.header-row .total-budget {
+    font-size: 1.5em;
+    font-weight: bold;
+    background-color: #800080;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.header-row .add-category {
+    font-size: 1.8em;
+    background-color: #800080;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* Kategorije */
+.categories {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.category {
+    background-color: #d9b3e6;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.category h3 {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.category .amounts {
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.category .amounts .income {
+    color: #00ff00;
+}
+
+.category .amounts .expense {
+    color: #ff0000;
+}
+
+.category .total {
+    font-size: 1.2em;
+    border-top: 1px solid black;
+    padding-top: 10px;
+}
+
+
+
