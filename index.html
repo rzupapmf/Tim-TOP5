@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Log in & Register page</title>
+    <title>Log in & Registracija</title>
 </head>
 
 <body>
@@ -13,32 +13,32 @@
         <div class="form-container sign-up"> 
             <form method="POST" action="register.php">
                 <h1>Napravite korisnički račun</h1>
-                <span>Use username and password</span>
+                <span>Koristite username i lozinku</span>
                     <input type="text" name="username" placeholder="Username" required>
-                    <input type="password" name="password" placeholder="Password" required>
-                    <button type="submit">Sign Up</button>
+                    <input type="password" name="password" placeholder="Lozinka" required>
+                    <button type="submit">Registriraj me</button>
                 </form>
         </div>
         <div class="form-container sign-in">
                 <form method="POST" action="login.php">
-                    <h1>Sign In</h1>
-                <span>Use username and password</span>
+                    <h1>Prijavite se</h1>
+                <span>Koristite username i lozinku</span>
                     <input type="text" name="username" placeholder="Username" required>
-                    <input type="password" name="password" placeholder="Password" required>
-                    <button type="submit">Sign In</button>
+                    <input type="password" name="password" placeholder="Lozinka" required>
+                    <button type="submit">Prijavi me</button>
                 </form>
         </div>
         <div class="toggle-container">
             <div class="toggle">
                 <div class="toggle-panel toggle-left">
-                    <h1>Welcome Back!</h1>
-                    <p>Enter your personal details to use all of site features</p>
-                    <button class="hidden" id="login">Sign In</button>
+                    <h1>Dobrodošli nazad!</h1>
+                    <p>Unesite Vaše podatke kako biste koristili sve funkcije</p>
+                    <button class="hidden" id="login">Prijavi se</button>
                 </div>
                 <div class="toggle-panel toggle-right">
-                    <h1>Hello there!</h1>
-                    <p>Register with and easy process and begin saving!</p>
-                    <button class="hidden" id="register">Sign Up</button>
+                    <h1>Dobrodošli!</h1>
+                    <p>Registrirajte se i počnite štediti!</p>
+                    <button class="hidden" id="register">Registriraj me</button>
                 </div>
             </div>
         </div>
