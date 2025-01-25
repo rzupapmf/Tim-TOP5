@@ -1,185 +1,114 @@
-/* Reset osnovnih postavki */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    font-family: Lucida Handwriting, cursive;
-    background-color: #e4d4f8;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-}
-
-/* Header */
-header {
-    width: 100%;
-    background-color: #800080;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-header .user-info {
-    display: flex;
-    align-items: center;
-}
-
-header .user-info i {
-    font-size: 1.8em;
-    margin-right: 10px;
-}
-
-header .user-info span {
-    font-size: 1.3em;
-    font-weight: bold;
-}
-
-header .logout {
-    font-size: 1.8em;
-    cursor: pointer;
-}
-
-/* Glavni kontejner */
-.container {
-    margin-top: 20px;
-    width: 90%;
-    max-width: 1000px;
-    background-color: #f6effc;
-    border: 2px solid #6a0dad;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+    font-family: 'Montserrat', sans-serif;
     padding: 20px;
-    position: relative;
 }
 
-/* Naslovna traka u glavnom dijelu */
-.container .header-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.header-row .edit {
-    font-size: 1.5em;
-    cursor: pointer;
-}
-
-.header-row .total-budget {
-    font-size: 1.5em;
-    font-weight: bold;
-    background-color: #800080;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-}
-
-.header-row .add-category {
-    font-size: 1.8em;
-    background-color: #800080;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
-
-/* Kategorije */
 .categories {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-wrap: wrap;
     gap: 20px;
+    justify-content: center;
 }
 
 .category {
-    background-color: #d9b3e6;
-    padding: 20px;
+    background-color: #fff;
     border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    position: relative;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 200px;
+    cursor: grab;
 }
 
 .category h3 {
-    font-size: 1.2em;
-    font-weight: bold;
+    font-size: 18px;
+    color: #512da8;
     margin-bottom: 10px;
-}
-
-.category .amounts {
-    font-size: 0.9em;
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.category .amounts .income {
-    color: #00ff00;
-}
-
-.category .amounts .expense {
-    color: #ff0000;
 }
 
 .category .total {
-    font-size: 1.2em;
-    border-top: 1px solid rgb(0, 0, 0);
-    padding-top: 10px;
-}
-
-.categories {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.category2 {
-    background-color: #d9b3e6;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    position: relative;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.category2 h3 {
-    font-size: 1.2em;
+    font-size: 16px;
     font-weight: bold;
+    color: #333;
     margin-bottom: 10px;
 }
 
-.category2 .amounts {
-    font-size: 0.9em;
+.category .budget-input {
+    font-size: 14px;
     margin-bottom: 10px;
+    width: 100%;
+    padding: 5px;
+}
+
+.category .spending {
+    margin-top: 10px;
+}
+
+.category .spending-input {
+    font-size: 14px;
+    width: 100%;
+    padding: 5px;
+    margin-right: 5px;
+}
+
+.category .save-spending-btn {
+    background-color: #512da8;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.category .save-spending-btn:hover {
+    background-color: #6a4be7;
+}
+
+.category .toggle-category-btn {
+    background-color: #007bff; /* Plava boja gumba */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.category .toggle-category-btn:hover {
+    background-color: #0056b3; /* Tamnija plava pri hoveru */
+}
+
+.category .toggle-category-btn:focus {
+    outline: none; /* Uklanja okvir pri fokusu */
+}
+
+.dragging {
+    opacity: 0.5;
+}
+
+/* Stil za gumb odjave */
+.logout {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.logout-btn {
+    text-decoration: none;
+    color: #ff4d4d;
+    font-size: 18px;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
 }
 
-.category2 .amounts .income {
-    color: #00ff00;
+.logout-btn i {
+    margin-right: 8px;
 }
 
-.category2 .amounts .expense {
-    color: #ff0000;
+.logout-btn:hover {
+    color: #ff1a1a;
 }
-
-.category2 .total {
-    font-size: 1.2em;
-    border-top: 1px solid rgb(0, 0, 0);
-    padding-top: 10px;
-}
-
-
-
-

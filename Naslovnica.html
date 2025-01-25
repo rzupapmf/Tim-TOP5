@@ -1,48 +1,36 @@
-<?php include 'fetch_categories.php'; ?>
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="hr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="naslovnica.css">
     <title>Aplikacija za Budžet</title>
 </head>
 
 <body>
-    <!-- Navigacija -->
     <header>
-        <div class="user-info">
-            <i class="fas fa-user-circle"></i>
-            <span><?php echo htmlspecialchars($loggedInUser); ?></span>
+        <h1>Aplikacija za Budžet</h1>
+        
+        <!-- Gumb za odjavu -->
+        <div class="logout">
+            <a href="odjava.php" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i> Odjava
+            </a>
         </div>
-        <a href="#" class="logout"><i class="fas fa-power-off"></i></a>
     </header>
 
-    <!-- Glavni sadržaj -->
-    <div class="container">
-        <div class="header-row">
-            <i class="fas fa-edit edit"></i>
-            <div class="total-budget">0,00 €</div>
-            <button class="add-category">+</button>
-        </div>
-
-        <div class="categories">
-            <?php foreach ($categories as $category): ?>
-                <div class="category">
-                    <h3><?php echo htmlspecialchars($category['naziv']); ?></h3>
-                    <div class="amounts">
-                        <span class="income">0,00 €</span>
-                        <span class="expense">0,00 €</span>
-                    </div>
-                    <div class="total">0,00 €</div>
-                </div>
-            <?php endforeach; ?>
-        </div>
-
-
+    <div class="categories" id="categories">
+        <!-- Kategorije će se dinamički prikazati ovdje -->
     </div>
+
+    <script src="naslovnica.js"></script>
 </body>
 
 </html>
+
+

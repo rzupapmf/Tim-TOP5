@@ -3,7 +3,10 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// Poveznica sa 
+// Pokreni sesiju
+session_start();
+
+// Poveznica sa bazom
 $host = 'localhost';
 $username = 'root';
 $password = '';
@@ -41,39 +44,60 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             // Unos generičkih kategorija za novog korisnika
             $user_id = $conn->insert_id;  // ID novog korisnika koji je upravo registriran
+            // Provjera korisničkog ID-a
+            echo "User ID: " . $user_id;
 
-            // Definicija generičkih kategorija
-            $categories = [
-                ['name' => 'Hrana', 'budget' => 00.00],
-                ['name' => 'Stanarina', 'budget' => 00.00],
-                ['name' => 'Režije', 'budget' => 00.00],
-            ];
+            // Provjera postoji li korisnik
+            $check_user = "SELECT id FROM Korisnici WHERE id = ?";
+            $stmt_check_user = $conn->prepare($check_user);
+            $stmt_check_user->bind_param('i', $user_id);
+            $stmt_check_user->execute();
+            $user_check_result = $stmt_check_user->get_result();
 
-            // SQL upit za unos kategorija u tablicu kategorija
-            $category_sql = "INSERT INTO Kategorije (user_id, name, budget, is_generic) VALUES (?, ?, ?, ?)";
-            $stmt_category = $conn->prepare($category_sql);
+            if ($user_check_result->num_rows > 0) {
+                // Definicija generičkih kategorija
+                $categories = [
+                    ['ime' => 'Hrana', 'budget' => 00.00],
+                    ['ime' => 'Stanarina', 'budget' => 00.00],
+                    ['ime' => 'Režije', 'budget' => 00.00],
+                    ['ime' => 'Štednja', 'budget' => 00.00],
+                    ['ime' => 'Zabava', 'budget' => 00.00],
+                    ['ime' => 'Ostalo', 'budget' => 00.00],
+                ];
 
-            // Provjera za greške u pripremi upita
-            if ($stmt_category === false) {
-                die('Error preparing statement: ' . $conn->error);
+                // SQL upit za unos kategorija u tablicu kategorije
+                $category_sql = "INSERT INTO Kategorije (user_id, ime, budget, is_generic) VALUES (?, ?, ?, ?)";
+                $stmt_category = $conn->prepare($category_sql);
+
+                // Provjera za greške u pripremi upita
+                if ($stmt_category === false) {
+                    die('Error preparing statement: ' . $conn->error);
+                }
+                $is_generic = 1; // Ovdje postavljamo generičke kategorije na 1
+
+                // Unos svake kategorije
+                foreach ($categories as $category) {
+                    // Bind param za svaku kategoriju
+                    $stmt_category->bind_param('ssdi', $user_id, $category['ime'], $category['budget'], $is_generic);
+                    $stmt_category->execute(); // Izvrši unos kategorije u bazu
+                }
+
+                echo " and generic categories have been added!";
+
+                // POSTAVLJANJE KORISNIČKE SESIJE
+                $_SESSION['user_id'] = $user_id; // Pohranjivanje ID-a korisnika u sesiju
+                $_SESSION['username'] = $username; // Pohranjivanje username-a u sesiju
+
+                // Preusmjeravanje na test.html nakon uspješne registracije
+                header('Location: Naslovnica.html');
+                exit; // Prekid izvršavanja kako ne bi bilo dodatnog ispisa
+            } else {
+                echo "Error: User does not exist.";
             }
-
-            $is_generic = 1; // Ovdje postavljamo generičke kategorije na 1
-
-            // Unos svake kategorije
-            foreach ($categories as $category) {
-                // Bind param za svaku kategoriju
-                $stmt_category->bind_param('ssdi', $user_id, $category['name'], $category['budget'], $is_generic);
-                $stmt_category->execute(); // Izvrši unos kategorije u bazu
-            }
-
-            echo " and generic categories have been added!";
         } else {
-            // Ako dođe do greške u unosu korisnika
             echo "Error: " . $stmt->error;
         }
     }
 }
 $conn->close();
 ?>
-
