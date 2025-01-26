@@ -15,14 +15,14 @@ $budget = $data->budget; // 'budget' umjesto 'newBudget'
 $host = 'localhost';
 $username = 'root';
 $password = '';
-$database = 'Projekt';
+$database = 'projekt';
 
 $conn = new mysqli($host, $username, $password, $database);
 if ($conn->connect_error) {
     die(json_encode(["error" => "Database connection failed: " . $conn->connect_error]));
 }
 
-$sql = "UPDATE Kategorije SET budget = ? WHERE id = ?";
+$sql = "UPDATE kategorije SET budget = ? WHERE id = ?";
 $stmt = $conn->prepare($sql);
 
 if ($stmt === false) {

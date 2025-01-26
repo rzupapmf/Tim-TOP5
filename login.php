@@ -9,7 +9,7 @@ error_reporting(E_ALL);
 $host = 'localhost';
 $username = 'root';
 $password = '';
-$database = 'Projekt';
+$database = 'projekt';
 
 // Povezivanje na bazu
 $conn = new mysqli($host, $username, $password, $database);
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = $_POST['password'];
 
     // Provjera podataka
-    $sql = "SELECT * FROM Korisnici WHERE username = ?";
+    $sql = "SELECT * FROM korisnici WHERE username = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param('s', $username);
     $stmt->execute();

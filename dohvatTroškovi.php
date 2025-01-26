@@ -19,7 +19,7 @@ if ($categoryId === null) {
 $host = 'localhost';
 $username = 'root';
 $password = '';
-$database = 'Projekt';
+$database = 'projekt';
 
 $conn = new mysqli($host, $username, $password, $database);
 if ($conn->connect_error) {
@@ -27,7 +27,7 @@ if ($conn->connect_error) {
 }
 
 // Dohvaćanje troškova za određenu kategoriju
-$sql = "SELECT kolicina, opis, date FROM Troškovi WHERE kategorije_id = ?";
+$sql = "SELECT kolicina, opis, date FROM troškovi WHERE kategorije_id = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param('i', $categoryId);
 $stmt->execute();

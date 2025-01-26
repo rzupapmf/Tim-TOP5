@@ -10,7 +10,7 @@ session_start();
 $host = 'localhost';
 $username = 'root';
 $password = '';
-$database = 'Projekt';
+$database = 'projekt';
 
 // Povezivanje na bazu
 $conn = new mysqli($host, $username, $password, $database);
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Zaštita lozinke
 
     // Provjera postoji li korisnik s tim username-om
-    $sql_check = "SELECT * FROM Korisnici WHERE username = ?";
+    $sql_check = "SELECT * FROM korisnici WHERE username = ?";
     $stmt_check = $conn->prepare($sql_check);
     $stmt_check->bind_param('s', $username);
     $stmt_check->execute();
@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Username already taken.";
     } else {
         // Unos korisnika
-        $sql = "INSERT INTO Korisnici (username, password) VALUES (?, ?)";
+        $sql = "INSERT INTO korisnici (username, password) VALUES (?, ?)";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param('ss', $username, $password);
 
@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo "User ID: " . $user_id;
 
             // Provjera postoji li korisnik
-            $check_user = "SELECT id FROM Korisnici WHERE id = ?";
+            $check_user = "SELECT id FROM korisnici WHERE id = ?";
             $stmt_check_user = $conn->prepare($check_user);
             $stmt_check_user->bind_param('i', $user_id);
             $stmt_check_user->execute();
@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 ];
 
                 // SQL upit za unos kategorija u tablicu kategorije
-                $category_sql = "INSERT INTO Kategorije (user_id, ime, budget, is_generic) VALUES (?, ?, ?, ?)";
+                $category_sql = "INSERT INTO kategorije (user_id, ime, budget, is_generic) VALUES (?, ?, ?, ?)";
                 $stmt_category = $conn->prepare($category_sql);
 
                 // Provjera za greške u pripremi upita

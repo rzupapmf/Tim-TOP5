@@ -22,14 +22,14 @@ if (empty($categoryId) || !is_numeric($spending) || $spending <= 0 || empty($des
 $host = 'localhost';
 $username = 'root';
 $password = '';
-$database = 'Projekt';
+$database = 'projekt';
 
 $conn = new mysqli($host, $username, $password, $database);
 if ($conn->connect_error) {
     die(json_encode(["error" => "Database connection failed: " . $conn->connect_error]));
 }
 
-$sql = "INSERT INTO Troškovi (kategorije_id, kolicina, opis, date) VALUES (?, ?, ?, CURDATE())";
+$sql = "INSERT INTO troškovi (kategorije_id, kolicina, opis, date) VALUES (?, ?, ?, CURDATE())";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param('ids', $categoryId, $spending, $description);
 

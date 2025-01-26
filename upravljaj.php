@@ -21,7 +21,7 @@ $user_id = $_SESSION['user_id'];
 $host = 'localhost';
 $username = 'root';
 $password = '';
-$database = 'Projekt';
+$database = 'projekt';
 
 $conn = new mysqli($host, $username, $password, $database);
 if ($conn->connect_error) {
@@ -29,7 +29,7 @@ if ($conn->connect_error) {
 }
 
 // SQL upit za dohvaćanje kategorija korisnika
-$sql = "SELECT id, ime, budget FROM Kategorije WHERE user_id = ? LIMIT 6";
+$sql = "SELECT id, ime, budget FROM kategorije WHERE user_id = ? LIMIT 6";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $user_id);
 $stmt->execute();

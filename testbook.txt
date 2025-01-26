@@ -1,0 +1,11 @@
+Regristacija - kod regristacije novog korisnika uspješno se unose podaci, korisnik uspješno regristiran
+Kod regristacije postojećeg korisnika, javlja se poruka da je korisnik već registriran
+Kod prijave korisnika, unosom ispravnog imena i lozinke korisnik je uspješno prijavljen
+Kod prijave korisnika neispravnim imenom javlja se poruka da korisnik nije pronađen
+Kod prijave korisnika s neispravnom lozinkom javlja se poruka da je neispravna lozinka
+Kad se korisnik registrira, uspješno se može unijeti budžet u kategorije
+Klikom na odjavu vraćamo se na početnu stranicu za prijavu
+Upit o spremanju lozinke uspješno se pamti prijava
+Kod registracije ime i lozinka nisu ograničeni već mogu biti jednostavni što nije dobro za sigurnost podataka
+Ne vidi se username kad je korisnik ulogiran
+Strelicom na prethodnu stranicu korisnik se izlogira
