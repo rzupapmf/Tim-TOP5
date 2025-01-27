@@ -1,0 +1,2 @@
+Pravimo profil, registracija je uspješna
+Kada zaboravimo lozinku, ne možemo ju promijeniti već napravi novi profil
