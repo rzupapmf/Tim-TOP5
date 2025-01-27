@@ -1,0 +1,6 @@
+Kategorije-obuhvaća rad s unaprijed definiranim kategorijama, poput „Režije", "Stanarina","Štednja"... 
+Svaka od postojećih kategorija korisnicima omogućuje dodavanje budžeta, unos troškova i definiranje naziva troškova.
+Dodavanja budžeta unutar kategorije potvrđeno je da korisnik može unijeti željeni iznos te da aplikacija ispravno ažurira podatke u skladu s unosom. 
+Naziv troškova također je testiran kroz postupak kreiranja i uređivanja unosa.
+Potvrđeno je da korisnik može dodati naziv troška te da on ostaje sačuvan i vidljiv prilikom ponovnog otvaranja aplikacije.
+
